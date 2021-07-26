@@ -1,5 +1,11 @@
 ### Login function using Flask
 
+Function included:
+1. New User (with password re-enter check)
+2. Update Profile (email, password)
+3. Delete user with confirmation (inside profile)
+4. Keep user session for n days
+
 Package to include:
 flask flask_bootstrap flask-login flask-wtf wtforms flask-sqlalchamy email_validator
 
