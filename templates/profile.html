@@ -1,0 +1,27 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+    Flask User
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='signin.css')}}">
+{% endblock %}
+
+{% block content %}
+<div class="container" style="text-align:center">
+  <form class="form-signin" method="POST" action="/profile" style="text-align:left">
+    <h2 class="form-signin-heading">Hello {{ current_user.username }}</h2>
+    <h6>Update your profile:</h6>
+    {{ form.hidden_tag() }}
+    {{ wtf.form_field(form.email, placeholder=current_user.email) }}
+    {{ wtf.form_field(form.password) }}
+    {{ wtf.form_field(form.confirm) }}
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Update</button>
+  </form>
+  <a href="{{url_for ('deleteuser')}}" class="btn btn-lg btn-danger" onClick="{if (confirm ( 'Deleting user\nAre you sure?')) {this. document.formname.submit (); return true;} return false;} ">Delete User</a>
+  
+</div> <!-- /container -->
+{% endblock %}
